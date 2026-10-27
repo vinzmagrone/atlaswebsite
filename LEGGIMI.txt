@@ -1,0 +1,1 @@
+Lista ATLAS — sito mobile first. Apri index.html nel browser oppure carica tutti i file su un hosting statico. La CTA Instagram punta a https://www.instagram.com/listaatlas_marconi/. Le icone sono SVG inline senza librerie esterne.
