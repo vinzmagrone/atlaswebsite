@@ -1,243 +1,274 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0b0b">
-  <meta name="description" content="Il programma della Lista ATLAS per il Marconi di Bari: palestra, autogestione, tornei, ATLAS Open e convenzioni per gli studenti.">
-  <meta property="og:title" content="ATLAS — Programma 2026/27">
-  <meta property="og:description" content="Palestra, autogestione, tornei e servizi per gli studenti. Il programma della Lista ATLAS.">
-  <meta property="og:image" content="assets/atlante-marconi.webp">
-  <link rel="icon" type="image/png" href="assets/atlas-icon.png">
-  <link rel="preload" as="image" href="assets/atlante-marconi.webp">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <title>ATLAS — Il programma 2026/27</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="Il programma della Lista ATLAS per il Marconi di Bari: palestra, autogestione, tornei, ATLAS Open e convenzioni per gli studenti.">
+<title>ATLAS — Il programma 2026/27</title>
+<link rel="icon" href="icon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1d4ed8;--blue2:#3b6bff;--ink:#0b0b0b;--paper:#f8f8f8;--gray:#6b7280;--line:rgba(248,248,248,.14);--serif:"Cinzel","Trajan Pro","Times New Roman",serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:2px solid var(--blue2);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--paper);color:var(--ink);padding:10px 14px;z-index:99}
+
+/* header */
+.hd{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.hd .logo img{height:40px;width:auto;mix-blend-mode:lighten}
+.hd nav{margin-left:auto;display:flex;gap:6px;align-items:center}
+.hd nav a{text-decoration:none;font-size:15px;padding:8px 14px;border-radius:99px;color:#cfd2d8;transition:.2s}
+.hd nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.hd nav a.cta{background:var(--blue);color:#fff;display:inline-flex;gap:8px;align-items:center;font-weight:500}
+.hd nav a.cta:hover{background:var(--blue2)}
+@media(max-width:640px){.hd nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{overflow:hidden;padding:clamp(36px,7vw,90px) 0 0;background:radial-gradient(900px 520px at 78% 38%,rgba(29,78,216,.28),transparent 70%),var(--ink)}
+.hg{display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(8px,3vw,48px);align-items:center}
+@media(max-width:860px){.hg{grid-template-columns:1fr}}
+.hero h1{font:900 clamp(44px,8.2vw,108px)/.98 var(--serif);letter-spacing:-.01em;margin:0 0 26px}
+.hero h1 span{display:block}
+.hero h1 em{font-style:normal;position:relative;display:inline-block}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--blue);transform:skewX(-24deg) scaleX(0);transform-origin:left;animation:ul 1s .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes ul{to{transform:skewX(-24deg) scaleX(1)}}
+.lead{font-size:clamp(18px,2.2vw,21px);color:#c9ccd3;max-width:30em;margin:0 0 34px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:99px;transition:.25s;font-size:16px}
+.btn.p{background:var(--blue);color:#fff;box-shadow:0 10px 40px -10px rgba(29,78,216,.8)}
+.btn.p:hover{background:var(--blue2);transform:translateY(-2px)}
+.btn.s{border:1px solid rgba(248,248,248,.3)}.btn.s:hover{background:var(--paper);color:var(--ink)}
+.fig{margin:0}
+.fig img{width:100%;height:auto;mix-blend-mode:lighten;-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 62%,transparent 100%);animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.97)}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(20px,4vw,56px)}
+.stats div{padding:22px 0 26px clamp(14px,3vw,32px);border-left:1px solid var(--line)}
+.stats div:first-child{border:0;padding-left:0}
+.stats b{display:block;font:700 clamp(30px,5vw,52px)/1 var(--serif)}
+.stats b i{font-style:normal;color:var(--blue2)}
+.stats span{color:var(--gray);font-size:14px}
+
+/* marquee */
+.mq{background:var(--blue);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+.mq div{display:inline-flex;gap:28px;align-items:center;width:max-content;padding-right:28px;animation:mv 40s linear infinite}
+.mq span{font:700 clamp(18px,2.6vw,26px) var(--serif);letter-spacing:.06em}
+.mq i{width:9px;height:9px;background:#fff;transform:skewX(-24deg)}
+@keyframes mv{to{transform:translateX(-50%)}}
+
+/* capitoli */
+.chap{padding:clamp(70px,10vw,130px) 0}
+.chap.light{background:var(--paper);color:var(--ink)}
+.chead{margin-bottom:clamp(34px,5vw,60px);display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+.cn{margin:0;font-size:15px;color:var(--blue2);font-weight:600;padding-right:22px;border-right:2px solid currentColor;line-height:1.1}
+.light .cn{color:var(--blue)}
+h2{font:900 clamp(40px,6.4vw,84px)/1 var(--serif);margin:0}
+.grid{display:grid;gap:18px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:6px 28px 6px 28px;padding:clamp(26px,3.4vw,40px);background:linear-gradient(160deg,#151515,#0d0d0d);transition:border-color .3s,transform .3s}
+.light .card{background:#fff;border-color:rgba(11,11,11,.12)}
+.card:hover{border-color:var(--blue2);transform:translateY(-3px)}
+.rn{position:absolute;right:20px;top:6px;font:900 clamp(70px,9vw,110px)/1 var(--serif);color:rgba(59,107,255,.14);pointer-events:none}
+.light .rn{color:rgba(29,78,216,.1)}
+.card h3{font:700 clamp(24px,2.6vw,31px)/1.15 var(--serif);margin:0 0 14px;max-width:80%;position:relative}
+.card p{margin:0;color:#c3c6cd;position:relative}.light .card p{color:#3a3f4a}
+.il{color:#fff;text-decoration-color:var(--blue2);text-underline-offset:4px;text-decoration-thickness:2px}.light .il{color:var(--ink)}
+details{margin-top:24px;border-top:1px solid var(--line);padding-top:16px;position:relative}
+.light details{border-color:rgba(11,11,11,.12)}
+summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:12px;font-weight:600;color:var(--blue2);min-height:44px}
+.light summary{color:var(--blue)}
+summary::-webkit-details-marker{display:none}
+.pi{width:30px;height:30px;border:1.5px solid currentColor;border-radius:50%;position:relative;transition:.3s}
+.pi::before,.pi::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.8px;background:currentColor;transform:translate(-50%,-50%);transition:.3s}
+.pi::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] .pi{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(180deg)}
+details[open] .pi::after{opacity:0}
+.dc{animation:op .4s ease both;padding-top:6px}
+@keyframes op{from{opacity:0;transform:translateY(-8px)}}
+.dc p{font-size:16px}
+
+/* convenzioni */
+.conv{background:radial-gradient(700px 400px at 12% 0,rgba(29,78,216,.35),transparent 70%),#0e1a44;padding:clamp(70px,10vw,130px) 0}
+.conv .chead{align-items:flex-end;justify-content:space-between}
+.conv .cn{color:#8fb0ff;border:0;padding:0;margin-bottom:12px}
+.cond{margin:0;padding:12px 18px;border:1px solid rgba(255,255,255,.35);border-radius:99px;font-weight:600;font-size:15px}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:800px){.pg{grid-template-columns:1fr}}
+.pc{display:flex;gap:22px;align-items:flex-start;background:var(--paper);color:var(--ink);padding:28px;border-radius:6px 28px 6px 28px}
+.mono{flex:none;width:76px;height:76px;display:grid;place-items:center;background:var(--ink);color:var(--paper);font:900 38px var(--serif);border-radius:18px;position:relative;overflow:hidden}
+.mono::after{content:"";position:absolute;left:12px;bottom:12px;width:9px;height:18px;background:var(--blue2);transform:skewX(-24deg)}
+.cat{font-size:13px;color:var(--blue);font-weight:600;display:block}
+.pc h3{font:700 24px/1.2 var(--serif);margin:2px 0 8px}
+.pc p{margin:0;color:#3a3f4a}
+.pl{display:inline-flex;gap:6px;align-items:center;margin-top:12px;color:var(--blue);font-weight:600;text-underline-offset:4px}
+
+/* chiusura e footer */
+.close{padding:clamp(80px,12vw,150px) 0}
+.close .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+@media(max-width:800px){.close .wrap{grid-template-columns:1fr}}
+.close h2{font-size:clamp(46px,8vw,104px)}
+.close p{color:#c3c6cd;margin:0 0 24px;max-width:24em}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--gray);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer img{height:34px;width:auto;mix-blend-mode:lighten}
+footer a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--paper);margin-left:16px}
+footer a:hover{color:var(--blue2)}
+
+/* animazioni allo scroll */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}.js .rv{opacity:1;transform:none}.hero h1 em::after{transform:skewX(-24deg)}}
+</style>
 </head>
 <body>
-  <a class="skip" href="#programma">Vai al programma</a>
-  <header class="site-header" id="top">
-    <div class="container header-row">
-      <a class="logo" href="#top" aria-label="Lista ATLAS, inizio pagina"><img src="assets/atlas-logo.png" alt="ATLAS — Lista ATLAS" width="424" height="180"></a>
-      <span class="header-meta">ITIS MARCONI · BARI / 2026—27</span>
-      <nav aria-label="Navigazione principale">
-        <a class="header-program" href="#programma">Programma</a>
-        <a class="header-convenzioni" href="#convenzioni">Convenzioni</a>
-      </nav>
+
+<!-- sprite icone -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ig" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="up" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+</svg>
+
+<a class="skip" href="#programma">Vai al programma</a>
+
+<header class="hd" id="top"><div class="wrap">
+  <a class="logo" href="#top" aria-label="Lista ATLAS, inizio pagina"><img src="logo.webp" alt="ATLAS — Lista ATLAS" width="260" height="103"></a>
+  <nav aria-label="Navigazione principale">
+    <a href="#programma">Programma</a>
+    <a href="#convenzioni">Convenzioni</a>
+    <a class="cta" href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram (si apre in una nuova scheda)"><svg class="ic"><use href="#ig"/></svg> Instagram</a>
+  </nav>
+</div></header>
+
+<main>
+<section class="hero" aria-labelledby="t"><div class="wrap">
+  <div class="hg">
+    <div>
+      <h1 id="t"><span>Il coraggio</span><span>di <em>esserci.</em></span></h1>
+      <p class="lead">Autogestione, Marconi Cup, palestra e servizi per gli studenti. Le nostre 8 proposte per il Marconi di Bari, anno 2026/27.</p>
+      <div class="btns">
+        <a class="btn p" href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram (si apre in una nuova scheda)"><svg class="ic"><use href="#ig"/></svg> Seguici su Instagram</a>
+        <a class="btn s" href="#convenzioni">Vedi le convenzioni</a>
+      </div>
     </div>
+    <figure class="fig" aria-hidden="true"><img src="atlante.webp" alt="" width="820" height="654" fetchpriority="high"></figure>
+  </div>
+  <div class="stats">
+    <div><b>8</b><span>proposte per la scuola</span></div>
+    <div><b>4</b><span>convenzioni per gli studenti</span></div>
+    <div><b>1<i>.</i></b><span>lista, la tua voce</span></div>
+  </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div>
+  <span>Autogestione</span><i></i><span>Marconi Cup</span><i></i><span>Palestra</span><i></i><span>ATLAS Open</span><i></i><span>InterSchool</span><i></i><span>Fantacalcio</span><i></i><span>Convenzioni</span><i></i><span>Foto ricordo</span><i></i>
+  <span>Autogestione</span><i></i><span>Marconi Cup</span><i></i><span>Palestra</span><i></i><span>ATLAS Open</span><i></i><span>InterSchool</span><i></i><span>Fantacalcio</span><i></i><span>Convenzioni</span><i></i><span>Foto ricordo</span><i></i>
+</div></div>
+
+<div id="programma">
+
+<section class="chap" id="scuola" aria-labelledby="scuola-h"><div class="wrap">
+  <header class="chead"><p class="cn">Capitolo I</p><h2 id="scuola-h">Scuola</h2></header>
+  <div class="grid g2">
+    <article class="card rv" id="palestra"><span class="rn" aria-hidden="true">I</span>
+      <h3>Palestra e spazi</h3>
+      <p>Chiederemo tempi di riapertura della palestra e spazi alternativi per educazione fisica.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Chiederemo alla dirigenza aggiornamenti sui lavori e sugli spazi utilizzabili nel frattempo. Raccoglieremo anche le segnalazioni su bagni, aule e laboratori per portarle agli incontri con la scuola.</p></div></details>
+    </article>
+    <article class="card rv" id="atlas-days"><span class="rn" aria-hidden="true">II</span>
+      <h3>ATLAS Days</h3>
+      <p>Autogestione con laboratori, sport e incontri proposti dagli studenti.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Raccoglieremo le proposte degli studenti per preparare il programma delle giornate di autogestione: chi tiene i laboratori, quali aule servono e come partecipare. Date e spazi saranno concordati con la scuola.</p></div></details>
+    </article>
+  </div>
+</div></section>
+
+<section class="chap light" id="attivita" aria-labelledby="attivita-h"><div class="wrap">
+  <header class="chead"><p class="cn">Capitolo II</p><h2 id="attivita-h">Attività</h2></header>
+  <div class="grid g3">
+    <article class="card rv" id="marconi-cup"><span class="rn" aria-hidden="true">III</span>
+      <h3>Marconi Cup</h3>
+      <p>Torneo di calcio a 7, con iscrizioni, calendario e risultati sul sito della Marconi Cup.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Prima delle iscrizioni pubblicheremo formula, quote e regolamento. Valuteremo altri sport in base alle adesioni e ai campi disponibili. L’eventuale ricavato servirà a finanziare le altre attività: pubblicheremo spese e incassi.</p></div></details>
+    </article>
+    <article class="card rv" id="fantacalcio"><span class="rn" aria-hidden="true">IV</span>
+      <h3>ATLAS Fantacalcio</h3>
+      <p>Lega gratuita tra studenti, senza scommesse né premi in denaro.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Raccoglieremo le adesioni e sceglieremo la formula in base al numero di partecipanti. Regolamento e calendario saranno condivisi prima dell’inizio della lega.</p></div></details>
+    </article>
+    <article class="card rv" id="interschool"><span class="rn" aria-hidden="true">V</span>
+      <h3>InterSchool</h3>
+      <p>Tornei e incontri con le altre scuole di Bari.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Contatteremo i rappresentanti degli altri istituti per proporre tornei e incontri. Pubblicheremo le iniziative quando avremo concordato organizzazione, date e costi.</p></div></details>
+    </article>
+  </div>
+</div></section>
+
+<section class="chap" id="servizi" aria-labelledby="servizi-h"><div class="wrap">
+  <header class="chead"><p class="cn">Capitolo III</p><h2 id="servizi-h">Servizi</h2></header>
+  <div class="grid g3">
+    <article class="card rv" id="atlas-open"><span class="rn" aria-hidden="true">VI</span>
+      <h3>ATLAS Open</h3>
+      <p>Segnalazioni anche anonime, con un codice privato per seguire le risposte dei rappresentanti.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Potrai inviare una segnalazione anonima o firmata e ritrovarla con un codice privato. Definiremo chi gestisce le richieste e come proteggere i dati prima di attivare il servizio. Per comprare e vendere libri usati useremo United, con cui abbiamo avviato la collaborazione.</p></div></details>
+    </article>
+    <article class="card rv" id="convenzioni-merch"><span class="rn" aria-hidden="true">VII</span>
+      <h3>Convenzioni e merch</h3>
+      <p><a class="il" href="#convenzioni">4 convenzioni per gli studenti</a>. Felpe e maglie su ordinazione, dopo aver comunicato i prezzi.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Per il merchandising raccoglieremo le richieste dopo aver comunicato prezzo e modello. L’acquisto sarà facoltativo.</p></div></details>
+    </article>
+    <article class="card rv" id="foto"><span class="rn" aria-hidden="true">VIII</span>
+      <h3>Foto ricordo</h3>
+      <p>Foto di classe facoltative. Il ricavato, tolte le spese, finanzierà le attività.</p>
+      <details><summary><span class="pi"></span><span>Approfondisci</span></summary><div class="dc"><p>Passeremo nelle classi per raccogliere gli ordini di chi vuole partecipare, con le autorizzazioni necessarie. Pubblicheremo quanto è stato speso per le foto e quanto resta per le iniziative.</p></div></details>
+    </article>
+  </div>
+</div></section>
+
+</div>
+
+<section class="conv" id="convenzioni" aria-labelledby="cv"><div class="wrap">
+  <header class="chead">
+    <div><p class="cn">Per gli studenti del Marconi</p><h2 id="cv">Convenzioni</h2></div>
+    <p class="cond">Valide solo se vince la Lista ATLAS.</p>
   </header>
+  <div class="pg">
+    <article class="pc rv"><span class="mono" aria-hidden="true">M</span><div><span class="cat">Poggiofranco</span><h3>Mozart Café</h3><p>Niente coperto.</p></div></article>
+    <article class="pc rv"><span class="mono" aria-hidden="true">D</span><div><span class="cat">Centro sportivo</span><h3>Di Cagno Abbrescia</h3><p>1€ di sconto a persona su ogni partita.</p></div></article>
+    <article class="pc rv"><span class="mono" aria-hidden="true">U</span><div><span class="cat">App</span><h3>United</h3><p>Il social degli studenti, anche per comprare e vendere libri usati.</p><a class="pl" href="https://uniteditalia.com/" target="_blank" rel="noopener noreferrer">Scopri l’app <svg class="ic"><use href="#up"/></svg></a></div></article>
+    <article class="pc rv"><span class="mono" aria-hidden="true">F</span><div><span class="cat">Matematica</span><h3>Associazione Formath</h3><p>Lezioni di matematica online gratuite.</p></div></article>
+  </div>
+</div></section>
 
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="hero-kicker"><span class="blue-line"></span> MARCONI · BARI <span class="hero-year">/ 2026—27</span></div>
-          <img class="hero-brand" src="assets/atlas-logo.png" alt="Lista ATLAS" width="424" height="180">
-          <h1 id="hero-title">Il coraggio<br><em>di esserci.</em></h1>
-          <p>Autogestione, Marconi Cup, palestra e servizi per gli studenti. Le nostre 8 proposte per il Marconi.</p>
-          <div class="hero-actions">
-            <a class="primary-link" id="hero-follow" href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram (si apre in una nuova scheda)"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></svg>Seguici su IG <span aria-hidden="true">↗</span></a>
-            <a class="secondary-link" href="#convenzioni">Vedi le convenzioni</a>
-          </div>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="visual-panel">
-            <img src="assets/atlante-marconi.webp" alt="" width="732" height="598" fetchpriority="high">
-            <div class="visual-badge badge-top">ATLAS · MARCONI</div>
+<section class="close" aria-label="Contatti e aggiornamenti"><div class="wrap">
+  <h2>Ci trovi su Instagram.</h2>
+  <div>
+    <p>Date, iniziative e aggiornamenti su @listaatlas_marconi.</p>
+    <a class="btn p" href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#ig"/></svg> Seguici su Instagram <svg class="ic"><use href="#up"/></svg></a>
+  </div>
+</div></section>
+</main>
 
-          </div>
-        </div>
-      </div>
-    </section>
+<footer><div class="wrap">
+  <div style="display:flex;align-items:center;gap:16px"><img src="logo.webp" alt="ATLAS — Lista ATLAS"><span>Il coraggio di esserci.<br>Lista studentesca, ITIS Marconi, Bari. Programma 2026/27.</span></div>
+  <div>
+    <a href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#ig"/></svg> @listaatlas_marconi</a>
+    <a href="#top">Torna su <svg class="ic"><use href="#up"/></svg></a>
+  </div>
+</div></footer>
 
-    <div id="programma" class="program-start">
-      <div class="container program-label"><span>IL PROGRAMMA</span><span>VIII PROPOSTE ↓</span></div>
-    <section class="chapter" id="scuola" aria-labelledby="scuola-heading">
-      <div class="container">
-        <div class="chapter-head">
-          <div>
-            <span class="chapter-number">I · IL PROGRAMMA</span>
-            <h2 id="scuola-heading">Scuola</h2>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article class="program-card" id="palestra" data-number="I">
-            <h3>Palestra e spazi</h3>
-            <p>Chiederemo tempi di riapertura della palestra e spazi alternativi per educazione fisica.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Chiederemo alla dirigenza aggiornamenti sui lavori e sugli spazi utilizzabili nel frattempo. Raccoglieremo anche le segnalazioni su bagni, aule e laboratori per portarle agli incontri con la scuola.</p></div>
-            </details>
-          </article>
-          <article class="program-card" id="atlas-days" data-number="II">
-            <h3>ATLAS Days</h3>
-            <p>Autogestione con laboratori, sport e incontri proposti dagli studenti.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Raccoglieremo le proposte degli studenti per preparare il programma delle giornate di autogestione: chi tiene i laboratori, quali aule servono e come partecipare. Date e spazi saranno concordati con la scuola.</p></div>
-            </details>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter chapter-dark" id="attivita" aria-labelledby="attivita-heading">
-      <div class="container">
-        <div class="chapter-head">
-          <div>
-            <span class="chapter-number">II · IL PROGRAMMA</span>
-            <h2 id="attivita-heading">Attività</h2>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article class="program-card" id="marconi-cup" data-number="III">
-            <h3>Marconi Cup</h3>
-            <p>Torneo di calcio a 7, con iscrizioni, calendario e risultati sul sito della Marconi Cup.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Prima delle iscrizioni pubblicheremo formula, quote e regolamento. Valuteremo altri sport in base alle adesioni e ai campi disponibili. L'eventuale ricavato servirà a finanziare le altre attività: pubblicheremo spese e incassi.</p></div>
-            </details>
-          </article>
-          <article class="program-card" id="fantacalcio" data-number="IV">
-            <h3>ATLAS Fantacalcio</h3>
-            <p>Lega gratuita tra studenti, senza scommesse né premi in denaro.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Raccoglieremo le adesioni e sceglieremo la formula in base al numero di partecipanti. Regolamento e calendario saranno condivisi prima dell'inizio della lega.</p></div>
-            </details>
-          </article>
-          <article class="program-card" id="interschool" data-number="V">
-            <h3>InterSchool</h3>
-            <p>Tornei e incontri con le altre scuole di Bari.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Contatteremo i rappresentanti degli altri istituti per proporre tornei e incontri. Pubblicheremo le iniziative quando avremo concordato organizzazione, date e costi.</p></div>
-            </details>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter" id="servizi" aria-labelledby="servizi-heading">
-      <div class="container">
-        <div class="chapter-head">
-          <div>
-            <span class="chapter-number">III · IL PROGRAMMA</span>
-            <h2 id="servizi-heading">Servizi</h2>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article class="program-card" id="atlas-open" data-number="VI">
-            <h3>ATLAS Open</h3>
-            <p>Segnalazioni anche anonime, con un codice privato per seguire le risposte dei rappresentanti.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Potrai inviare una segnalazione anonima o firmata e ritrovarla con un codice privato. Definiremo chi gestisce le richieste e come proteggere i dati prima di attivare il servizio. Per comprare e vendere libri usati useremo United, con cui abbiamo avviato la collaborazione.</p></div>
-            </details>
-          </article>
-          <article class="program-card" id="convenzioni-merch" data-number="VII">
-            <h3>Convenzioni e merch</h3>
-            <p><a class="inline-link" href="#convenzioni">4 convenzioni per gli studenti</a>. Felpe e maglie su ordinazione, dopo aver comunicato i prezzi.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Per il merchandising raccoglieremo le richieste dopo aver comunicato prezzo e modello. L'acquisto sarà facoltativo.</p></div>
-            </details>
-          </article>
-          <article class="program-card" id="foto" data-number="VIII">
-            <h3>Foto ricordo</h3>
-            <p>Foto di classe facoltative. Il ricavato, tolte le spese, finanzierà le attività.</p>
-            <details>
-              <summary><svg class="icon icon-plus" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/><path class="plus-vertical" d="M12 5v14"/></svg><span>Approfondisci</span></summary>
-              <div class="details-content"><p>Passeremo nelle classi per raccogliere gli ordini di chi vuole partecipare, con le autorizzazioni necessarie. Pubblicheremo quanto è stato speso per le foto e quanto resta per le iniziative.</p></div>
-            </details>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    </div>
-
-    <section class="chapter partnerships" id="convenzioni" aria-labelledby="convenzioni-heading">
-      <div class="container">
-        <div class="chapter-head">
-          <div>
-            <span class="chapter-number">PER GLI STUDENTI DEL MARCONI</span>
-            <h2 id="convenzioni-heading">Convenzioni</h2>
-          </div>
-          <p class="partnership-condition"><strong>Valide solo se vince la Lista ATLAS.</strong></p>
-        </div>
-        <div class="partners-grid">
-          <article class="partner-card">
-            <div class="partner-logo"><img src="assets/convenzioni/mozart-cafe.png" alt="Al Mozart" width="401" height="401" loading="lazy" decoding="async"></div>
-            <div class="partner-copy">
-              <span class="partner-category">POGGIOFRANCO</span>
-              <h3>Mozart Café</h3>
-              <p class="partner-benefit">Niente coperto.</p>
-
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-logo"><img src="assets/convenzioni/di-cagno-abbrescia.jpg" alt="Centro sportivo Di Cagno Abbrescia" width="999" height="999" loading="lazy" decoding="async"></div>
-            <div class="partner-copy">
-              <span class="partner-category">CENTRO SPORTIVO</span>
-              <h3>Di Cagno Abbrescia</h3>
-              <p class="partner-benefit">1€ di sconto a persona su ogni partita.</p>
-
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-logo partner-logo-wide"><img src="assets/convenzioni/united.svg" alt="United" width="1080" height="1081" loading="lazy" decoding="async"></div>
-            <div class="partner-copy">
-              <span class="partner-category">APP</span>
-              <h3>United</h3>
-              <p class="partner-benefit">Il social degli studenti, anche per comprare e vendere libri usati.</p>
-
-              <a class="partner-link" href="https://uniteditalia.com/" target="_blank" rel="noopener noreferrer">Scopri l'app <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-          <article class="partner-card">
-            <!-- Logo da inserire dopo aver identificato il profilo ufficiale dell'associazione. -->
-            <div class="partner-logo partner-name" aria-hidden="true"><span>Associazione<br><strong>Formath</strong></span></div>
-            <div class="partner-copy">
-              <span class="partner-category">MATEMATICA</span>
-              <h3>Associazione Formath</h3>
-              <p class="partner-benefit">Lezioni di matematica online gratuite.</p>
-
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing" aria-label="Contatti e aggiornamenti">
-      <div class="container closing-inner">
-        <div>
-          <span class="micro">CONTATTI</span>
-          <h2>Ci trovi<br>su Instagram.</h2>
-        </div>
-        <div class="closing-side">
-          <p>Date, iniziative e aggiornamenti su @listaatlas_marconi.</p>
-          <a class="contact-cta" id="closing-follow" href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></svg>Seguici su IG <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <img src="assets/atlas-logo.png" alt="ATLAS — Lista ATLAS" width="424" height="180">
-        <p>Il coraggio di esserci.</p>
-      </div>
-      <div class="footer-right">
-        <span>LISTA STUDENTESCA · ITIS G. MARCONI · BARI</span>
-        <span>PROGRAMMA 2026—27</span>
-        <a href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lista ATLAS"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg><span>@listaatlas_marconi</span></a><a href="#top">Torna su <svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></a>
-      </div>
-    </div>
-  </footer>
-  <aside class="follow-dock" aria-label="Seguici su Instagram" hidden>
-    <a href="https://www.instagram.com/listaatlas_marconi/" target="_blank" rel="noopener noreferrer" aria-label="Seguici su Instagram (si apre in una nuova scheda)"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></svg><span>Seguici su IG<small>@listaatlas_marconi</small></span><span class="dock-arrow" aria-hidden="true">↗</span></a>
-  </aside>
+<script>
+document.documentElement.classList.add('js');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(n){o.observe(n)});
+}catch(e){document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')})}
+</script>
 </body>
 </html>
